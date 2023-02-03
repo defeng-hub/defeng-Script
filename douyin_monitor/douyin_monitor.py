@@ -57,7 +57,7 @@ def log():
         print("是否开启浏览器：是")
     else:
         print("是否开启浏览器：否")
-    print("监听间隔时间(秒)：{}".format(wait_time))
+    print("每一轮的间隔时间(秒)：{}".format(wait_time))
 
 
 if __name__ == '__main__':

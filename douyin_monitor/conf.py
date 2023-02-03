@@ -7,7 +7,7 @@ user_list = [
     "https://v.douyin.com/Rwauvh4/",
 ]
 
-#  监听间隔时间(秒)
+#  每一轮的间隔时间(秒)
 wait_time = 1
 
 # 博主更新视频后，是否自动打开浏览器进入
