@@ -37,8 +37,11 @@ def getSec_uid(url):
         url = re.findall('(https?://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)', url)[0]
         resp = requests.get(url=url, headers=lsheaders, allow_redirects=False)
         location = resp.headers['location']
-        temp = location.split('&')
-        sec_uid = temp[4].split('=')[1]
+        # temp = location.split('&')
+        # sec_uid = temp[4].split('=')[1]
+
+        lsurl = location.split("?")[0]
+        sec_uid = lsurl.split("/")[-1]
         return sec_uid
     except:
         return ""
