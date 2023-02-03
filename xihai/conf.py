@@ -2,7 +2,13 @@ douyin_ck = "passport_assist_user=Cj0GJeX2FuBDtDSs6SMhLrCseg7p81NPv6T06xya4lNS_k
 
 user_list = [
     "https://v.douyin.com/BrE92Kp/",
+    "https://v.douyin.com/Brsa1sR/",
     "https://v.douyin.com/Br5gAmG/",
     "https://v.douyin.com/Rwauvh4/",
-    "https://v.douyin.com/Brsa1sR/",
 ]
+
+#  监听间隔时间(秒)
+wait_time = 1
+
+# 博主更新视频后，是否自动打开浏览器进入
+open_browser = 0

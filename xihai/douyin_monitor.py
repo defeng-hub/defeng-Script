@@ -3,10 +3,12 @@ import webbrowser
 from douyin_user_info import getUserName, getSec_uid
 from douyin_videos import getUserFirstVideo, getUserFirstVideoAndName, playAudio
 from init import douyinheaders, monitorUrlList, monitorUser
+from conf import wait_time, open_browser
 
 
 # 初始化监听对象
 def initMonitor():
+    log()
     # 初始化
     for i in range(len(monitorUrlList)):
         url = monitorUrlList[i]
@@ -15,11 +17,12 @@ def initMonitor():
             vid, name = getUserFirstVideoAndName(secuid, douyinheaders)
             if name != "" and secuid != "":
                 monitorUser[url] = [name, secuid, vid]
+            else:
+                print("{}：".format(url), "地址无法使用, 已跳过。")
 
-    print("=====初始化开始=====")
     for k in monitorUser:
-        print(k, monitorUser[k])
-    print("=====初始化完成=====")
+        print(k + "：", monitorUser[k][0])
+    print("=====初始化完成, 监听数量：{}条=====".format(len(monitorUser)))
 
 
 def runMonitor():
@@ -30,14 +33,31 @@ def runMonitor():
             name, secuid, yvid = obj[0], obj[1], obj[2]
             time.sleep(1)
             hvid = getUserFirstVideo(secuid, douyinheaders)
+            if hvid == "":
+                print("<此条信息如果连续出现多次，那么该更换 conf.py文件中的douyin_ck参数>")
+                continue
+
             if yvid != hvid:
-                # 打开浏览器
-                webbrowser.open(url)
-                print("更新了视频", name, url)
+                if open_browser == 1:
+                    webbrowser.open(url)
+
+                # 更新为后来的vid
+                monitorUser[url][2] = hvid
+                print("{}：更新了视频 {}".format(name, url))
                 playAudio("./mp3/quick.mp3")
             else:
                 continue
-        time.sleep(20)
+        time.sleep(wait_time)
+
+
+def log():
+    print("========开始初始化....=========")
+
+    if open_browser == 1:
+        print("是否开启浏览器：是")
+    else:
+        print("是否开启浏览器：否")
+    print("监听间隔时间(秒)：{}".format(wait_time))
 
 
 if __name__ == '__main__':

@@ -19,7 +19,8 @@ douyinheaders = {
 }
 
 monitorUser = {
-    "https://v.douyin.com/BrE92Kp/": ["风月鉴", "MS4wLjABAAAAtxsohPRa6MhnS5moiCWcRJ53NQrSOAXAwtIxXOlZQdE"],
+    "https://v.douyin.com/BrE92Kp/": ["风月鉴", "MS4wLjABAAAAtxsohPRa6MhnS5moiCWcRJ53NQrSOAXAwtIxXOlZQdE", "7195884334828490023"],
+    "https://v.douyin.com/Brsa1sR/": ["七分", "MS4wLjABAAAA6oLHgl0pMNtzfrPFmep80Ue_u8zHzX2gfd4hcrHMTnU", "7178536054851505469"],
 }
 
 monitorUrlList = user_list
